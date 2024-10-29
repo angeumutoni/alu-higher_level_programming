@@ -17,3 +17,5 @@ class Patient:
   
   patients = [patient1, patient2, patient3, patient4, patient5, patient6]
   def count_patients(patient_list):
+ return len(patient_list)
+  def list_patient_names(patient_list)
