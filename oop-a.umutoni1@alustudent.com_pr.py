@@ -14,3 +14,5 @@ class Patient:
   patient4 = Patient(4, "Arsene KABASINGA", 30, "Male", "2024-10-12", "Bleeding knee")
   patient5 = Patient(5, "Allen KANSIME", 12, "Female", "2024-01-09", "Vaccination")
   patient6 = Patient(6, "Ines UMUHOZA", 25, "Female", "2024-10-12", "Headache")
+  
+patients = [patient1, patient2, patient3, patient4, patient5, patient6]
