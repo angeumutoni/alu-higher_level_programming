@@ -6,4 +6,5 @@ class Patient:
     self.gender = gender
     self.admission_date = admission_date
     self.condition = condition
-def get_details(self):
+  def get_details(self):
+  return f"ID: {self.id}\nName: {self.name}\nAge: {self.age}\nGender: {self.gender}\nAdmission Date:{self.admission_date}\nCondition: {self.condition}
