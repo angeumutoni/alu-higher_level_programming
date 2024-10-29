@@ -6,3 +6,4 @@ class Patient:
     self.gender = gender
     self.admission_date = admission_date
     self.condition = condition
+def get_details(self):
