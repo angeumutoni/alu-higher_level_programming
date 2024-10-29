@@ -7,15 +7,18 @@ class Patient:
     self.admission_date = admission_date
     self.condition = condition
   def get_details(self):
-  return f"ID: {self.id}\nName: {self.name}\nAge: {self.age}\nGender: {self.gender}\nAdmission Date:{self.admission_date}\nCondition: {self.condition}
-  patient1 = Patient(1, "Allan MUGISHA", 20, "Male", "2024-01-09", "Marburg")
-  patient2 = Patient(2, "Jesse Kisaale WALUSANSA", 25, "Male", "2024-10-12", "Headache")
-  patient3 = Patient(3, "Chris HIRWA", 23, "Male", "2024-12-08", "Flu")
-  patient4 = Patient(4, "Arsene KABASINGA", 30, "Male", "2024-10-12", "Bleeding knee")
-  patient5 = Patient(5, "Allen KANSIME", 12, "Female", "2024-01-09", "Vaccination")
-  patient6 = Patient(6, "Ines UMUHOZA", 25, "Female", "2024-10-12", "Headache")
+      return f"ID: {self.id}\nName: {self.name}\nAge: {self.age}\nGender: {self.gender}\nAdmission Date:{self.admission_date}\nCondition: {self.condition}"
+patient1 = Patient(1, "Allan MUGISHA", 20, "Male", "2024-01-09", "Marburg")
+patient2 = Patient(2, "Jesse Kisaale WALUSANSA", 25, "Male", "2024-10-12", "Headache")
+patient3 = Patient(3, "Chris HIRWA", 23, "Male", "2024-12-08", "Flu")
+patient4 = Patient(4, "Arsene KABASINGA", 30, "Male", "2024-10-12", "Bleeding knee")
+patient5 = Patient(5, "Allen KANSIME", 12, "Female", "2024-01-09", "Vaccination")
+patient6 = Patient(6, "Ines UMUHOZA", 25, "Female", "2024-10-12", "Headache")
   
-  patients = [patient1, patient2, patient3, patient4, patient5, patient6]
-  def count_patients(patient_list):
- return len(patient_list)
-  def list_patient_names(patient_list)
+Patients = [patient1, patient2, patient3, patient4, patient5, patient6]
+def count_patients(patient_list):
+    return len(patient_list)
+def list_patient_names(patient_list):
+    return [patient.name for patient in patient_list]
+    print ("The total number of patients is:", count_patients(patients))
+    print("Current patients' names:", list_patient_names(patients))
