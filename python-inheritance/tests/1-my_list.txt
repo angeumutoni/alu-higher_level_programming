@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+''' Creating module 1 named MyList '''
 class MyList(list):
     ''' creating a public instance method '''
 
