@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-reading a text file and printing it to stdout
+function that reads a text file and prints it to stdout
 """
 
 
