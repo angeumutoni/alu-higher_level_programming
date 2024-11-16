@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""For this task, we are going to write a class Student that defines a student by: (based on 10-student.py)""
+"""Defines a class Student."""
 
 
 class Student:
