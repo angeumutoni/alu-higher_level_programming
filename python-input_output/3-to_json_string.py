@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' For this task, we are creating a function that returns the JSON representation of an object (string)
+''' function that returns the JSON representation of an object (string)
 '''
 
 import json
