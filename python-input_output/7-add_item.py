@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""For this task, we are creating a function that adds all arguments to a Python list and save them to a file."""
+"""function that adds all arguments to a Python list and save them to a file"""
 import sys
 
 if __name__ == "__main__":
