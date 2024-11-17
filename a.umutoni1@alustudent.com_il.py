@@ -1,4 +1,4 @@
-class Application:
+class Assignment:
     def __init__(self, name, assignment_type, score, weight):
         self.name = name
         self.assignment_type = assignment_type
