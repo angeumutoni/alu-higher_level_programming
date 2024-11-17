@@ -1,22 +1,29 @@
+# Creating Assignment class 
 class Assignment:
+    # Initializing Assignment objects with the required parameters.
     def __init__(self, name, assignment_type, score, weight):
         self.name = name
         self.assignment_type = assignment_type
         self.score = score
         self.weight = weight
 
+    # Calculating the weighted score for the entered assignment based on its weight.
     def weighted_score(self):
         return (self.score * self.weight) / 100
 
 
+# Creating Student class
 class Student:
+    # Initializing a Student object with the given name and an empty list of assignments.
     def __init__(self, name):
         self.name = name
         self.assignments = []
 
+    # Adding the entered assignment to the list of assignments.
     def add_assignment(self, assignment):
         self.assignments.append(assignment)
 
+    # Calculating total assignments scores.
     def calculate_scores(self):
         formative_total = 0
         summative_total = 0
@@ -31,12 +38,13 @@ class Student:
                 summative_total += assignment.weighted_score()
                 summative_weight += assignment.weight
 
-        # Checking if entered weights are not exceeding 60 for formatives nor 40 for summatives
+        # Making sure that entered weights are not exceeding 60 for formatives nor 40 for summatives
         if formative_weight > 60 or summative_weight > 40:
-            raise ValueError("Total weights exceed their allowed limits.")
+            raise ValueError("Total weights exceed the allowed limits.")
 
         return formative_total, summative_total
 
+    # Checking if the student has passed or failed the course based on their scores.
     def check_progression(self):
         formative_total, summative_total = self.calculate_scores()
         passed_formative = formative_total >= 30
@@ -47,6 +55,7 @@ class Student:
         else:
             return "You have failed the course and must retake it."
 
+    # Identifying all Formative assignments eligible for resubmission.
     def check_resubmission(self):
         resubmission_assignments = []
         for assignment in self.assignments:
@@ -54,7 +63,9 @@ class Student:
                 resubmission_assignments.append(assignment)
         return resubmission_assignments
 
+    # Generating and displaying this student's transcript.
     def generate_transcript(self, order='ascending'):
+        # Sorting assignments based on score, in the chosen order
         sorted_assignments = sorted(self.assignments, key=lambda x: x.score, reverse=(order == 'descending'))
         print("\nTranscript Breakdown ({} Order):".format(order.capitalize()))
         print("Assignment          Type            Score(%)    Weight (%)")
@@ -64,17 +75,22 @@ class Student:
         print("-----------------------------------------------------------")
 
 
+# Main function to interact with the user for inputs.
 def main():
-    student_name = input("Enter student name: ")
+    student_name = input("Hello, enter student name please: ")
     student = Student(student_name)
 
     while True:
-        name = input("Enter assignment name (or enter 'exit' to finish): ")
-        if name.lower() == 'exit':
+        name = input("Enter assignment name (or type 'done' to proceed): ")
+        if name.lower() == 'done':
             break
-        assignment_type = input("Enter assignment type (Formative/Summative: ")
-        score = float(input("Enter assignment score (0-100) as a percentage: "))
-        weight = float(input("Enter this assignment's weight: "))
+        assignment_type = input("Enter assignment type (Formative/Summative): ")
+        while assignment_type not in ['Formative', 'Summative']:
+            print ("Invalid input, try again!")
+            assignment_type = input("Enter assignment type (Formative/Summative): ")
+            
+        score = float(input("Enter assignment score: "))
+        weight = float(input("Enter assignment weight: "))
 
         assignment = Assignment(name, assignment_type, score, weight)
         student.add_assignment(assignment)
@@ -86,14 +102,14 @@ def main():
         print(f"Summative Total: {summative_total:.2f}%")
         print(student.check_progression())
 
-        # Checking for resubmission eligibility
+        # Check for resubmission eligibility
         resubmissions = student.check_resubmission()
         if resubmissions:
             print("You are eligible for resubmission for the following assignments:")
             for resub in resubmissions:
                 print(f"- {resub.name} (Score: {resub.score}%)")
 
-        # Generate transcript
+        # Asking preferred order to display transcript
         order = input("Would you like the transcript displayed in ascending or descending order? ")
         student.generate_transcript(order)
 
@@ -103,3 +119,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
